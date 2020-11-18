@@ -1,0 +1,33 @@
+<form>
+  <div class="form-group">
+    <div class="input-group">
+      <input class="form-control mr-sm-2" type="search" name="filterCategorias" placeholder="Filtrar por Categoria" aria-label="Search" [(ngModel)]="filterCategorias" >
+      <input class="form-control mr-sm-2" type="search" name="filterMeses" placeholder="Filtrar por Mes" aria-label="Search" [(ngModel)]="filterMeses" >
+    </div>
+    </div>
+  </form>
+
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Detalle</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Transaccion</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Fecha</th>
+      </tr>
+    </thead>
+
+
+<tbody>
+    <tr *ngFor="let registro of totRegistros | filter:filterCategorias | filterMes: filterMeses">
+      <td>{{registro.nombre}}</td>
+      <td>{{registro.detalle}}</td>
+      <td>{{registro.precio | currency}}</td>
+      <td>{{registro.transaccion}}</td>
+      <td>{{registro.categoria}}</td>
+      <td>{{registro.fecha}}</td>
+    </tr>
+  </tbody>
+</table>
